@@ -1,0 +1,567 @@
+<!-- Save as index.html (put logo.png and qr.png in the same folder) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NIKKA MD OFFICIAL</title>
+  <meta name="theme-color" content="#330000"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:#060606;
+      --deep-black:#0b0b0b;
+      --red-1:#ff2323;
+      --red-2:#b30000;
+      --muted:#d9d9d9;
+      --accent:#ff4d4d;
+      --glass: rgba(255,255,255,0.04);
+      --card-radius:14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Montserrat", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--black) 0%, #1a0000 35%, #2b0000 65%, var(--red-1) 100%);
+      color: var(--muted);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: 140px; /* space for chat box */
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 28px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.1));
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,0,0,0.09);
+    }
+
+    img.logo {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(179,0,0,0.18);
+      border: 2px solid rgba(255,0,0,0.08);
+      background: #111;
+    }
+
+    .brand {
+      line-height: 1;
+    }
+    .brand h1 {
+      margin: 0;
+      color: #fff;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .brand p {
+      margin: 4px 0 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-left {
+      flex: 1 1 480px;
+      min-width: 260px;
+    }
+    .hero-right {
+      width: 360px;
+      max-width: 40%;
+      min-width: 260px;
+    }
+
+    h2.title {
+      margin: 6px 0 8px 0;
+      color: #fff;
+      font-size: 34px;
+    }
+    .lead {
+      color: #f0dede;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, rgba(255,20,20,0.95), rgba(179,0,0,0.96));
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(179,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: transform .14s ease, box-shadow .14s ease;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn.secondary {
+      background: linear-gradient(90deg, rgba(40,40,40,0.7), rgba(80,0,0,0.6));
+      border: 1px solid rgba(255,0,0,0.08);
+    }
+    .btn:active {
+      transform: translateY(1px);
+    }
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .meta {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .meta a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(30,0,0,0.25));
+      padding: 16px;
+      border-radius: 12px;
+      color: #fff;
+      border: 1px solid rgba(255,0,0,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    }
+    .card h4 {
+      margin: 0 0 10px 0;
+      color: #ffdede;
+    }
+    .card .small {
+      font-size: 13px;
+      color: #ffdede;
+      opacity: 0.95;
+    }
+    .deploys {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .deploys a {
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(255,0,0,0.06);
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: #cca6a6;
+      opacity: 0.9;
+      font-size: 13px;
+    }
+
+    /* Chat box */
+    #chat-box {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 360px;
+      max-width: calc(100% - 40px);
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0000 45%, #b30000 100%);
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(179,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9999;
+      font-size: 14px;
+    }
+    #chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: linear-gradient(90deg, rgba(255,10,10,0.12), rgba(0,0,0,0.12));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    #chat-header .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    #chat-header .status {
+      display: flex;
+      flex-direction: column;
+    }
+    #chat-header .status strong {
+      font-size: 14px;
+      color: #fff;
+    }
+    #chat-header .status span {
+      font-size: 12px;
+      color: #ffdede;
+      opacity: 0.9;
+    }
+
+    #chat-messages {
+      height: 220px;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+      flex-grow: 1;
+    }
+
+    .msg.you {
+      align-self: flex-end;
+      background: linear-gradient(90deg, rgba(255,80,80,0.14), rgba(179,0,0,0.18));
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 78%;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.02);
+      word-wrap: break-word;
+    }
+    .msg.bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.03);
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 78%;
+      font-size: 13px;
+      color: #ffdede;
+      border: 1px solid rgba(255,255,255,0.02);
+      word-wrap: break-word;
+    }
+
+    #chat-input {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid rgba(255,255,255,0.02);
+      background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.06));
+    }
+    #chat-input input {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,0,0,0.12);
+      background: rgba(20,0,0,0.45);
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+    }
+    #chat-input button {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ff3b3b, #b30000);
+      border: none;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(179,0,0,0.18);
+      user-select: none;
+    }
+
+    /* QR modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      z-index: 10000;
+    }
+    .modal .modal-card {
+      width: 320px;
+      max-width: calc(100% - 40px);
+      background: linear-gradient(180deg, #110000, #2b0000);
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid rgba(255,0,0,0.14);
+      color: white;
+      text-align: center;
+    }
+    .modal img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin: 6px auto;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+      .hero-right {
+        width: 100%;
+      }
+      #chat-box {
+        right: 12px;
+        left: 12px;
+        max-width: unset;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header>
+      <img src="logo.png" alt="logo" class="logo" />
+      <div class="brand">
+        <h1>NIKKA MD OFFICIAL</h1>
+        <p>Owner: <strong>NIKILA KESHARA</strong> • WhatsApp: <a href="https://wa.me/94761527735" style="color:#ffdede;text-decoration:underline;">0761527735</a></p>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="main">
+      <div class="hero-left">
+        <h2 class="title">NIKKA MD — WhatsApp User Bot</h2>
+        <p class="lead">Fast, reliable automation for WhatsApp. Use the pair/QR to connect — deploy on Render, Koyeb or GitHub.</p>
+
+        <div class="buttons">
+          <a href="#" class="btn" id="pairBtn">🔑 Get Pair Code</a>
+          <a href="#" class="btn" id="qrBtn">📷 Show QR Code</a>
+          <a href="https://wa.me/94761527735" class="btn secondary" target="_blank" rel="noopener noreferrer">📞 Contact Owner</a>
+          <a href="https://whatsapp.com/channel/0029Va8Yh2jJpe8bn5Tayl1Y" class="btn secondary" target="_blank" rel="noopener noreferrer">📢 Join Channel</a>
+        </div>
+
+        <div class="meta" aria-label="Bot platforms">
+          <span>Bot Platforms:</span>
+          <a href="#" class="secondary">Render</a>
+          <a href="#" class="secondary">Koyeb</a>
+          <a href="#" class="secondary">GitHub</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="card">
+          <h4>Quick Info</h4>
+          <div class="small">Owner: <strong>NIKILA KESHARA</strong></div>
+          <div class="small">WhatsApp: <a href="https://wa.me/94761527735" style="color:#ffdede">0761527735</a></div>
+          <div style="margin-top:10px;">
+            <a class="btn" id="pairBtn2">🔑 Pair Code</a>
+            <a class="btn" id="qrBtn2">📷 QR</a>
+          </div>
+
+          <div style="margin-top:10px;">
+            <div class="deploys">
+              <a href="#">🚀 Render</a>
+              <a href="#">☁️ Koyeb</a>
+              <a href="#">💻 GitHub</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      © 2025 NIKKA MD OFFICIAL — All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Chat box -->
+  <div id="chat-box" role="region" aria-label="Chat box">
+    <div id="chat-header">
+      <img src="logo.png" alt="owner avatar" class="avatar" />
+      <div class="status">
+        <strong>NIKKA Support</strong>
+        <span>Online • Reply usually within minutes</span>
+      </div>
+    </div>
+
+    <div id="chat-messages" aria-live="polite">
+      <div class="msg bot">Hi! 👋 Need help connecting your bot? Type your message below.</div>
+    </div>
+
+    <div id="chat-input">
+      <input id="msg" placeholder="Type message and press Send or Enter…" autocomplete="off" />
+      <button id="sendBtn" aria-label="Send message">Send</button>
+    </div>
+  </div>
+
+  <!-- QR / Pair modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-card">
+      <h3 id="modalTitle">QR Code</h3>
+      <img id="modalImg" src="qr.png" alt="QR code" />
+      <p id="modalText" style="color:#ffdede;margin-top:8px">Scan the QR with your phone to pair.</p>
+      <div style="margin-top:8px;">
+        <a href="#" id="copyPair" class="btn">Copy Pair Code</a>
+        <a href="#" id="closeModal" class="btn secondary">Close</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pairCode = "PAIR-ABC123-XYZ"; // Replace with actual pair code from backend
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalText = document.getElementById('modalText');
+    const copyPair = document.getElementById('copyPair');
+    const closeModal = document.getElementById('closeModal');
+
+    const qrBtn = document.getElementById('qrBtn');
+    const qrBtn2 = document.getElementById('qrBtn2');
+    const pairBtn = document.getElementById('pairBtn');
+    const pairBtn2 = document.getElementById('pairBtn2');
+
+    // Show QR modal
+    function openQR() {
+      modalTitle.textContent = "Scan QR to Pair";
+      modalImg.src = "qr.png"; // qr.png must be in same folder
+      modalImg.style.display = "block";
+      modalText.textContent = "Scan the QR code with your WhatsApp to connect the bot.";
+      copyPair.style.display = "none";
+      modal.style.display = "flex";
+      modal.focus();
+    }
+
+    // Show Pair Code modal
+    function openPair() {
+      modalTitle.textContent = "Pair Code";
+      modalImg.style.display = "none"; // hide QR image
+      modalText.textContent = "Your Pair Code: " + pairCode;
+      copyPair.style.display = "inline-block";
+      modal.style.display = "flex";
+      modal.focus();
+    }
+
+    // Event listeners for buttons
+    [qrBtn, qrBtn2].forEach(btn => {
+      btn?.addEventListener('click', e => {
+        e.preventDefault();
+        openQR();
+      });
+    });
+
+    [pairBtn, pairBtn2].forEach(btn => {
+      btn?.addEventListener('click', e => {
+        e.preventDefault();
+        openPair();
+      });
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', e => {
+      e.preventDefault();
+      modal.style.display = 'none';
+    });
+
+    // Copy pair code
+    copyPair.addEventListener('click', e => {
+      e.preventDefault();
+      navigator.clipboard?.writeText(pairCode).then(() => {
+        copyPair.textContent = "Copied!";
+        setTimeout(() => copyPair.textContent = "Copy Pair Code", 1600);
+      }).catch(() => {
+        alert("Cannot copy; please copy manually: " + pairCode);
+      });
+    });
+
+    // Close modal when clicking outside the modal card
+    modal.addEventListener('click', e => {
+      if(e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Chat box logic
+    const sendBtn = document.getElementById('sendBtn');
+    const msgInput = document.getElementById('msg');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function appendMsg(text, who) {
+      const d = document.createElement('div');
+      d.className = who === 'you' ? 'msg you' : 'msg bot';
+      d.textContent = text;
+      chatMessages.appendChild(d);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function sendMsg() {
+      const v = msgInput.value.trim();
+      if(!v) return;
+      appendMsg(v, 'you');
+      msgInput.value = '';
+      // Simulated bot reply
+      setTimeout(() => {
+        const reply = generateBotReply(v);
+        appendMsg(reply, 'bot');
+      }, 700 + Math.random() * 600);
+    }
+
+    sendBtn.addEventListener('click', sendMsg);
+    msgInput.addEventListener('keydown', e => {
+      if(e.key === 'Enter') {
+        e.preventDefault();
+        sendMsg();
+      }
+    });
+
+    function generateBotReply(userText) {
+      const s = userText.toLowerCase();
+      if(s.includes('pair')) return 'To get a pair code: press "Get Pair Code" — then copy the code and paste into your client.';
+      if(s.includes('qr')) return 'Click "Show QR Code" to scan the QR with your phone.';
+      if(s.includes('owner') || s.includes('contact')) return 'Owner: NIKILA KESHARA — WhatsApp: 0761527735';
+      return 'Thanks — we received your message. For quick setup, press Get Pair Code or Show QR Code.';
+    }
+
+    // Hide copy button on load
+    copyPair.style.display = 'none';
+  </script>
+</body>
+</html>
