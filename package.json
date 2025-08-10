@@ -1,0 +1,14 @@
+{
+  "name": "nikka-md-website",
+  "version": "1.0.0",
+  "description": "Official website for NIKKA MD WhatsApp Bot",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm start"
+  },
+  "author": "NIKILA KESHARA",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
